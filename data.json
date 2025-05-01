@@ -1,0 +1,83 @@
+{
+  "users": {
+    "admin": {
+      "password": "admin123",
+      "role": "admin"
+    },
+    "Ivan": {
+      "password": "ivan123",
+      "role": "client"
+    }
+  },
+  "tickets": {
+    "1": {
+      "subject": "Unable to login",
+      "description": "di ko ka login mali ang password",
+      "client": "Ivan",
+      "status": "Closed",
+      "conversation": [
+        {
+          "sender": "client",
+          "message": "di ko ka login mali ang password",
+          "timestamp": "2025-05-01 11:27:21"
+        },
+        {
+          "sender": "admin",
+          "message": "okay adto lang sa HR para tagaan ka bagong account",
+          "timestamp": "2025-05-01 11:41:24"
+        },
+        {
+          "sender": "client",
+          "message": "Okay sir",
+          "timestamp": "2025-05-01 11:42:09.342038"
+        }
+      ]
+    },
+    "2": {
+      "subject": "Di ko ka sulod",
+      "description": "lock ang office",
+      "client": "Ivan",
+      "status": "Closed",
+      "conversation": [
+        {
+          "sender": "client",
+          "message": "lock ang office",
+          "timestamp": "2025-05-01 11:43:07"
+        },
+        {
+          "sender": "admin",
+          "message": "Okay naay mag adto guard dinha wait lang mga 5mins.",
+          "timestamp": "2025-05-01 11:43:33"
+        },
+        {
+          "sender": "client",
+          "message": "Okay sir",
+          "timestamp": "2025-05-01 11:43:56.884317"
+        }
+      ]
+    },
+    "3": {
+      "subject": "Unable to login",
+      "description": "Server error",
+      "client": "Ivan",
+      "status": "Closed",
+      "conversation": [
+        {
+          "sender": "client",
+          "message": "Server error",
+          "timestamp": "2025-05-01 11:46:23"
+        },
+        {
+          "sender": "admin",
+          "message": "Okay wait for 5mins and then refresh your page after that.",
+          "timestamp": "2025-05-01 11:46:54"
+        },
+        {
+          "sender": "client",
+          "message": "Okay na sir, Salamaaat!",
+          "timestamp": "2025-05-01 11:47:23.890371"
+        }
+      ]
+    }
+  }
+}
