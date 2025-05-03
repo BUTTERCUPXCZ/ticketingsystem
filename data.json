@@ -7,6 +7,14 @@
     "Ivan": {
       "password": "ivan123",
       "role": "client"
+    },
+    "laighton": {
+      "password": "123",
+      "role": "client"
+    },
+    "Laighton": {
+      "password": "password123",
+      "role": "client"
     }
   },
   "tickets": {

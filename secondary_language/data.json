@@ -1,0 +1,9 @@
+{
+  "tickets": {},
+  "users": {
+    "admin": {
+       "password": "admin123",
+      "role": "admin"
+    }
+  }
+}

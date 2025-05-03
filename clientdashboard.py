@@ -10,6 +10,7 @@ from components.conversation_box import ConversationBox  # ✅ Now this will wor
 from utils import get_current_timestamp, get_new_ticket_id
 from components.form import TicketForm
 
+
 class ClientDashboard:
     def __init__(self, root, username, logout_callback):
         self.root = root
@@ -88,7 +89,7 @@ class ClientDashboard:
     def show_conversation(self, ticket_id):
         """Display full conversation for the ticket"""
         from components.conversation_box import ConversationBox
-    
+
         # Clear main frame
         for widget in self.main_frame.winfo_children():
             widget.destroy()
@@ -129,7 +130,8 @@ class ClientDashboard:
             # Initialize conversation if it doesn't exist
             if "conversation" not in ticket:
                 ticket["conversation"] = [
-                    {"sender": "client", "message": ticket["description"], "timestamp": str(datetime.now())}
+                    {"sender": "client", "message": ticket["description"], "timestamp": str(
+                        datetime.now())}
                 ]
 
             ticket["conversation"].append({
@@ -194,18 +196,19 @@ class ClientDashboard:
 
             # Validate required fields
             if not subject.strip() or not description.strip():
-                messagebox.showwarning("Validation Error", "Subject and description are required")
+                messagebox.showwarning(
+                    "Validation Error", "Subject and description are required")
                 return
 
             data["tickets"][ticket_id] = new_ticket
             save_data(data)
-            
+
             messagebox.showinfo(
-                "Success", 
+                "Success",
                 f"Ticket #{ticket_id} created successfully!\n"
                 f"Subject: {subject}"
             )
             self.show_my_tickets()
-            
+
         except Exception as e:
             messagebox.showerror("Error", f"Failed to create ticket: {str(e)}")
