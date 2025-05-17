@@ -4,11 +4,9 @@
 #include <ctime>
 #include <iostream>
 #include <string>
-#include <termios.h>
-#include <unistd.h>
+
 
 using namespace nlohmann;
-std::string get_hidden_password();
 bool authenticated();
 void admin_interface();
 void client_interface();
@@ -60,7 +58,8 @@ void admin_interface() {
     std::string pass;
     std::cout << "Username: ";
     std::cin >> user;
-    pass = get_hidden_password();
+    std::cout << "Password: ";
+    std::cin >> pass;
     save_user(user, pass, "client");
     break;
   }
@@ -172,30 +171,14 @@ void save_user(const std::string &username, const std::string &password,
   }
 }
 
-std::string get_hidden_password() {
-  std::string password;
-  termios oldt, newt;
-
-  std::cout << "Password: ";
-  tcgetattr(STDIN_FILENO, &oldt);
-  newt = oldt;
-  newt.c_lflag &= ~ECHO;
-  tcsetattr(STDIN_FILENO, TCSANOW, &newt);
-
-  std::cin >> password;
-
-  tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
-  std::cout << std::endl;
-  return password;
-}
-
 bool authenticated() {
 
   json data = load_data();
 
   std::cout << "Username: ";
   std::cin >> username;
-  password = get_hidden_password();
+  std::cout << "Password: ";
+  std::cin >> password;
 
   if (data.contains("users")) {
     for (auto &user_item : data["users"].items()) {
